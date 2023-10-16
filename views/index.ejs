@@ -1,0 +1,125 @@
+<%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="/styles/main.css">
+
+
+<h1 style="padding-bottom: 20px;"><%= date[currDay] %>,<%= currDate %></h1>
+
+<div class="main-container">
+    <div class="Todo">
+        <h2>DAILY TO-DOs</h2>
+        <hr>
+        <form action="/addItems" method="POST">
+            <div class="slot" id="todoList">
+                <% NumOfTasks = items.length %>
+                <% if(NumOfTasks == 0) { %>
+                    <input name="task" type="checkbox" class="input" />
+                    <textarea id="actual" name="fname" rows="1" placeholder="Enter the New Task"></textarea>
+                    <hr>
+                    <input type="submit" value="Add Task" class="items" placeholder="Add items"/>
+                <% }else{ %>
+                    <ul>
+                        <% for (let i=0; i < items.length; i++) { %>
+                                <li>
+                                    <input name="task" type="checkbox" class="input" />
+                                    <%= items[i] %>
+                                </li>
+                                <hr>
+                        <% } %>
+                    
+                        <input name="task" type="checkbox" class="input" />
+                        <textarea id="actual" name="fname" rows="1" placeholder="Enter the New Task"></textarea>
+                        <hr>
+                    <input type="submit" value="Add Task" class="items" placeholder="Add items"/>
+                </ul>
+                <% } %>
+            </div>
+        </form>    
+    </div>
+    
+    <div class="idealSchedule">
+        <h2>IDEAL SCHEDULE</h2>
+        <hr>
+        <textarea id="ideal" name="fname" rows="1" placeholder="Let's plan out your day !!"></textarea>
+    </div>
+
+    <div class="reflection">
+        <h2>REFLECTION OF THE DAY</h2>
+        <hr>
+        <textarea id="actual" name="fname" rows="1" placeholder="Do I feel happy with how I spend my day - (Yes/No)"></textarea>
+        <hr>
+        <textarea id="actual" name="fname" rows="1" placeholder="Why do you feel this way?"></textarea>
+        <hr>
+        <textarea id="actual" name="fname" rows="1"></textarea>
+        <hr>
+        <textarea id="actual" name="fname" rows="1"></textarea>
+        <hr>
+        <textarea id="actual" name="fname" rows="1"></textarea>
+    </div>
+
+    <div class="actualSchedule">
+        <h2>ACTUAL SCHEDULE</h2>
+        <hr>
+        <form action="/schedule" method="POST">
+            <div class="slot">
+                <input name="time" type="checkbox" class="time"> 6A-7A : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 7A-8A : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 8A-9A : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 9A-10A : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 10A-11A : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 11A-12A : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 12A-1P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 1P-2P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 2P-3P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 3P-4P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 4P-5P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 5P-6P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 6P-7P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 7P-8P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 8P-9P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 9P-10P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 10P-11P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+                <input name="time" type="checkbox" class="time"> 11P-12P : </input>
+                <textarea id="actual" name="fname" rows="1"></textarea>
+                <hr>
+            </div>
+        </form>
+    </div>
+    
+    
+</div>
+<%- include("partials/footer.ejs") %>
+
