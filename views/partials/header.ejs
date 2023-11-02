@@ -3,21 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/styles/main.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Add custom styles for the sidebar */
+        /* Add custom styles for the sidebar */
+        .sidebar {
+            height: 100vh; /* Make it full height */
+            width: 15%; /* Set the width to your desired value */
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: auto;
+            background-color: #333; /* Background color for the sidebar */
+            color: #fff; /* Text color for links */
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Style the links in the sidebar */
+        .sidebar a {
+            padding: 20px 15px;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change the link color on hover */
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        /* Position the form at the bottom */
+        .newlist {
+            margin-top: auto;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    
+
+    </style>
     <title>TO-DO List</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark" style="padding-bottom: 0;">
-        <div class="container-fluid">
-          <a class="navbar-brand text-light" href="/">My Profile</a>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active text-light" aria-current="page" href="/today">Today</a>
-              <!-- <a class="nav-link text-light" href="/work">Work</a> -->
-            </div>
-          </div>
-        </div>
-    </nav>
+<!-- Sidebar -->
+<!-- Sidebar -->
+<div class="sidebar">
+    <a class="navbar-brand text-light" href="/">My Profile</a>
+    <a class="nav-link active text-light" aria-current="page" href="/">My Day</a>
+
+    <!-- Show all custom lists in the sidebar -->
+    <%  if (typeof customListName !== 'undefined') { %>
+        <% customLists.forEach(list => { %>
+            <a class="nav-link text-light" href="<%= `/${list.listName}` %>"><%= list.listName %></a>
+        <% }); %>
+    <% } %>
+
+    <!-- Add more links as needed -->
+    
+    <!-- Move the form to the end of the sidebar -->
+    <form class="newlist" method="post" action="/createCustomList">
+        <input type="text" name="customListName" id="customListName"
+            style="display: inline; 
+            color: white;
+            background: transparent;
+            border: none;
+            outline: none;
+            resize: none;
+            overflow: hidden;
+            width: 60%;
+            height: 40px;"
+            placeholder="New List">
+        <button type="submit" class="text-light" style="background: transparent">+</button>
+    </form>
+</div>
+
+
+
+    
 </body>
 </html>

@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="/styles/main.css">
+
+<div class="list">
+    <h1><%= listTitle %></h1>
+    <hr>
+    <div class="slot" id="todoList">
+        <ul>
+            <% items.forEach(function(item) { %>
+                <form action="/delItems" method="post">
+                    <li>
+                        <input name="task" type="checkbox" class="input" value="<%= item._id %>" onchange="this.form.submit()"/>
+                        <%= item.itemName %>
+                    </li>
+                    <hr>
+                    <input type="hidden" name="list" value="<%= listTitle %>"></input>
+                </form>
+            <% }); %>
+                
+            <form action="/" method="post">
+                <input name="task" type="checkbox" class="input" />
+                <textarea id="actual" name="newTask" rows="1" placeholder="Enter the New Task"></textarea>
+                <hr>
+                <button type="submit" name="list" value="<%= listTitle %>" class="items" >Add Task</button>
+            </form>
+        </ul>   
+    </div>
+</div>

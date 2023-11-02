@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    color: white;
 }
 ul,li{
     list-style: none;
@@ -28,6 +29,10 @@ h1{
 h2{
     color: white;
 }
+p{
+    color: white;
+    text-align: center;
+}
 hr{
     height: 2px;
     background-color: white;
@@ -39,12 +44,14 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
 }
+
 .main-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 434px 500px 400px;
     gap: 50px;
     margin: 20px;
+    margin-left: 210px;
 
 }
 .Todo{
@@ -66,7 +73,11 @@ input[type="checkbox"] {
     /* width: 45%; */
     /* min-height: 100px; */
 }
-
+.list {
+    margin-left: 220px;
+    overflow: auto;
+    border: 2px solid black; 
+}
 .items{
     cursor: pointer;
     outline: 0;
@@ -170,7 +181,7 @@ input[type="checkbox"] {
     padding: 5px;
     font-weight:100px;
     line-height: 1.5;
-    width: 550px;
+    width: 70%;
 }
 @media(max-width: 1250px){
     .main-container{
