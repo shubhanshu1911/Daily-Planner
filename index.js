@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import _ from "lodash";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 // let items = []; // store the items to be added
 let currentDay = null;
 
